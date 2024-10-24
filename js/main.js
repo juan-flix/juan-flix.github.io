@@ -64,3 +64,38 @@ function loginAbrir() {
 
 	window.location.href = "https://juandevgroup.github.io/downloads-delivery/juan-flix/login/"
 }
+
+
+function detectarPlataforma() {
+  
+	const userAgent = navigator.userAgent || navigator.vendor;
+  
+	if (/android/i.test(userAgent)) {
+   
+	  document.getElementById('video').style.display = 'none';
+	document.getElementById('contenido').style.display = 'block';
+	}
+	
+	else if (/iPad|iPhone|iPod/i.test(userAgent)) {
+	  
+	  document.getElementById('video').style.display = 'none';
+	document.getElementById('contenido').style.display = 'block';
+	}
+	
+	else {
+	  var video = document.getElementById('video');
+  
+  video.loop = false;
+  video.addEventListener('ended', function() {
+	document.getElementById('video').style.display = 'none';
+	document.getElementById('contenido').style.display = 'block';
+  });
+	}
+  }
+  
+  // Llamar a la función
+  detectarPlataforma();
+  
+   
+	
+  
