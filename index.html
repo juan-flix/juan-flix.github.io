@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido a Juan Fli+</title>
+    <style>
+        body {
+            background-color: #141414;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            transition: background-color 0.5s ease;
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.85);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        input {
+            padding: 15px;
+            margin: 10px 0;
+            width: 90%;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: border 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border: 2px solid #e50914;
+            box-shadow: 0 0 5px rgba(229, 9, 20, 0.5);
+        }
+
+        button {
+            padding: 15px 30px;
+            background-color: #e50914;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #f40612;
+            transform: scale(1.05);
+        }
+
+        #mensaje {
+            margin-top: 20px;
+            font-size: 1.2em;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        #mensajeBienvenida {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        #contenido {
+            display: none;
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .fade-out {
+            animation: fadeOut 0.5s forwards;
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .blur {
+            filter: blur(5px);
+            transition: filter 1.5s ease; /* Aumentar tiempo de transición del blur */
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+      <div id="welcome">
+        <h1>Bienvenido a Juan Flix+</h1>
+         <div id="formulario">
+            <input type="text" id="nombre" placeholder="Introduce tu nombre" required>
+            <input type="number" id="edad" placeholder="Introduce tu edad" required>
+            <br>
+            <button onclick="guardarDatos()">Iniciar</button>
+        </div>
+      </div>
+       
+        <p id="mensaje"></p>
+        <p id="mensajeBienvenida"></p>
+        <button id="btnAceptar" style="display: none;" onclick="cerrarBienvenida()">Aceptar</button>
+    </div>
+   
+    <script>
+        // Función para guardar una cookie de sesión
+    function guardarSesion() {
+            const fechaExpiracion = new Date();
+            fechaExpiracion.setTime(fechaExpiracion.getTime() + (1 * 60 * 60 * 1000)); // 1 hora
+            document.cookie = `sesion=true; path=/; expires=${fechaExpiracion.toUTCString()}; SameSite=Lax`; // Guardar cookie de sesión
+        }
+
+      const welcomeDiv = document.getElementById("welcome");
+
+    // Función para guardar datos en cookies
+        function setCookie(nombre, valor, dias) {
+            const d = new Date();
+            d.setTime(d.getTime() + (dias * 24 * 60 * 60 * 1000));
+            const expires = "expires=" + d.toUTCString();
+            document.cookie = nombre + "=" + valor + ";" + expires + ";path=/";
+        }
+
+        // Función para obtener el valor de una cookie
+        function getCookie(nombre) {
+            const name = nombre + "=";
+            const decodedCookie = decodeURIComponent(document.cookie);
+            const ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) === 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        // Función para mostrar mensaje de bienvenida o guardar datos
+        function guardarDatos() {
+          const btnAceptar = document.getElementById('btnAceptar');
+            const nombre = document.getElementById('nombre').value;
+            const edad = document.getElementById('edad').value;
+            const mensaje = document.getElementById('mensaje');
+
+            if (nombre && edad) {
+              formulario.style.display = 'none'; // Ocultar el formulario
+                welcomeDiv.style.display = 'none'; // Ocultar el formulario       
+                btnAceptar.style.display = "block"
+                setCookie("nombre", nombre, 7); // Guardar nombre en cookies por 7 días
+                setCookie("edad", edad, 7); // Guardar edad en cookies por 7 días
+                mensaje.innerText = `¡Bienvenid@ ${nombre}! Tienes ${edad} años. Bienvenido a Juan Flix+`;
+                mensaje.style.opacity = 1; // Hacer visible el mensaje
+                guardarSesion(); // Guardar cookie de sesión
+            } else {
+                mensaje.innerText = 'Por favor, completa todos los campos.';
+                mensaje.style.opacity = 1; // Hacer visible el mensaje
+            }
+        }
+
+        // Mostrar mensaje de bienvenida si ya hay cookies
+        window.onload = function() {
+          
+            const nombre = getCookie("nombre");
+            const edad = getCookie("edad");
+            const mensaje = document.getElementById('mensaje');
+            const mensajeBienvenida = document.getElementById('mensajeBienvenida');
+            const formulario = document.getElementById('formulario');
+            const btnAceptar = document.getElementById('btnAceptar');
+
+            if (nombre && edad) {
+              formulario.style.display = 'none'; // Ocultar el formulario
+                welcomeDiv.style.display = 'none'; // Ocultar el formulario       
+                btnAceptar.style.display = "block"
+                
+                mensajeBienvenida.innerText = `¡Bienvenido de nuevo ${nombre}! Tienes ${edad} años. Disfruta de Juan Fli+!`;
+                mensajeBienvenida.style.display = 'block'; // Mostrar mensaje de bienvenida
+                mensajeBienvenida.style.opacity = 1; // Hacer visible el mensaje
+                btnAceptar.style.display = 'block'; // Mostrar botón "Aceptar"
+            }
+        }
+
+        // Función para cerrar el mensaje de bienvenida
+        function cerrarBienvenida() {
+            const container = document.getElementById('container');
+            const mensajeBienvenida = document.getElementById('mensajeBienvenida');
+            const btnAceptar = document.getElementById('btnAceptar');
+            const contenido = document.getElementById('contenido');
+
+            container.classList.add('blur'); // Añadir clase de desenfoque
+            setTimeout(() => {
+                container.style.display = 'none'; // Ocultar contenedor
+                window.location = 'home-cont.html'
+            }, 1500); // Aumentar tiempo de espera antes de ocultar el contenedor
+        }
+    </script>
+</body>
+</html>

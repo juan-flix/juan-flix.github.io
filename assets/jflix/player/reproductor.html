@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor de Video</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            max-width: 800px;
+            width: 100%;
+            opacity: 0; /* Inicialmente oculto para la animación */
+            transform: translateY(20px); /* Desplazado hacia abajo para la animación */
+            animation: fadeInUp 0.5s forwards; /* Animación de entrada */
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0); /* Regresar a la posición original */
+            }
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 500;
+            color: #6200ea;
+            animation: titleFadeIn 0.6s forwards; /* Animación de entrada para el título */
+        }
+
+        @keyframes titleFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 id="video-title">Reproductor de Video</h1>
+    <iframe id="video-frame" src="" allow="autoplay" sandbox="allow-same-origin allow-scripts"></iframe>
+</div>
+
+<script>
+    // Lista de videos como un objeto JSON
+    const movies = [
+        { title: 'Loca por las compras', link: 'ver-loca-por-las-compras' },
+        { title: 'Mi villano favorito 4', link: 'ver-mi-villano-favorito-4' },
+        { title: 'UP: Una aventura en las alturas', link: 'ver-up' },
+        { title: 'Un vecino gruñón', link: 'ver-un-vecino-gruñón' },
+        { title: 'Planeta de los simios: Nuevo Reino', link: 'ver-planeta-de-los-simios' },
+        { title: 'Daniel el Travieso', link: 'ver-daniel-el-travieso' },
+        { title: 'Los pinguinos de papá', link: 'play-movie-3r3434t44' },
+        { title: 'IntensaMente 2', link: 'ver-intensamente-2' },
+        { title: 'Pollitos en Fuga 1', link: 'ver-pollitos-en-fuga-1' },
+        { title: 'Pollitos en Fuga 2', link: 'ver-pollitos-en-fuga-2' },
+        { title: 'Babe: el puerquito valiente', link: 'ver-babe-el-puerquito-valiente' },
+        { title: 'Rio 2', link: 'play-movie-r734ty48ty74y8' },
+        { title: 'El rescate de Ruby', link: 'ver-el-rescate-de-ruby' },
+        { title: 'Como entrenar a tu dragon 1', link: 'KYUT9ZQev2ZUpRCalugpmPDfuwdpqhohHH1TimrthqAPcs6cI45jygacbtuFw3wH' },
+        { title: 'Como entrenar a tu dragon 2', link: 'ubPrHz9uMjIgVXwu4FWcLuyl Gd1sGmjgl3iaseD49Uo3iPPQphZYJS3MRMVeWd9s' },
+        { title: 'Como entrenar a tu dragon 3', link: 'oIPwKPCmP28z7kFXAmrDfIZCjvKga0UA8R9I8dP2P7tOZQqleaGXTiAsH8pOE7vq' },
+        { title: 'Naufragio', link: 'ver-naufrago' },
+        { title: 'La Era de Hielo 1', link: 'ver-la-era-de-hielo-1' },
+        { title: 'La Era de Hielo 2', link: 'ver-la-era-de-hielo-2' },
+        { title: 'La Era de Hielo 3', link: 'ver-la-era-de-hielo-3' },
+        { title: 'La Era de Hielo 4', link: 'ver-la-era-de-hielo-4' },
+        { title: 'La Era de Hielo 5', link: 'ver-la-era-de-hielo-5' },
+        { title: 'La Propuesta', link: 'ver-la-propuesta' },
+        { title: 'Mis Huellas a Casa', link: 'ver-mis-huellas-a-casa' },
+        { title: 'Mi Pobre Angelito 1', link: 'ver-mi-pobre-angelito-1' },
+        { title: 'Mi Pobre Angelito 2', link: 'ver-mi-pobre-angelito-2' },
+        { title: 'Mi Pobre Angelito 3', link: 'ver-mi-pobre-angelito-3' },
+        { title: 'El Joven Manos de Tijeras', link: 'ver-el-joven-manos-de-tijeras' },
+        { title: 'Paternidad', link: 'ver-paternidad' },
+        { title: 'Desconectados', link: 'ver-desconectados' },
+    ];
+
+    // Lista de IDs como un objeto JSON
+    const IdTable = [
+        { link: 'ver-loca-por-las-compras', idLink: '1QtYLEkgft1gg8o3sXBf461_xWnnRHgiz' },
+        { link: 'ver-mi-villano-favorito-4', idLink: '' },
+        { link: 'ver-up', idLink: '' },
+        { link: 'ver-un-vecino-gruñón', idLink: '' },
+        { link: 'ver-planeta-de-los-simios', idLink: '' },
+        { link: 'ver-daniel-el-travieso', idLink: '' },
+        { link: 'play-movie-3r3434t44', idLink: '' },
+        { link: 'ver-intensamente-2', idLink: '' },
+        { link: 'ver-pollitos-en-fuga-1', idLink: '' },
+        { link: 'ver-pollitos-en-fuga-2', idLink: '' },
+        { link: 'ver-babe-el-puerquito-valiente', idLink: '' },
+        { link: 'play-movie-r734ty48ty74y8', idLink: '' },
+        { link: 'ver -el-rescate-de-ruby', idLink: '' },
+        { link: 'KYUT9ZQev2ZUpRCalugpmPDfuwdpqhohHH1TimrthqAPcs6cI45jygacbtuFw3wH', idLink: '' },
+        { link: 'ubPrHz9uMjIgVXwu4FWcLuyl Gd1sGmjgl3iaseD49Uo3iPPQphZYJS3MRMVeWd9s', idLink: '' },
+        { link: 'oIPwKPCmP28z7kFXAmrDfIZCjvKga0UA8R9I8dP2P7tOZQqleaGXTiAsH8pOE7vq', idLink: '' },
+        { link: 'ver-naufrago', idLink: '' },
+        { link: 'ver-la-era-de-hielo-1', idLink: '' },
+        { link: 'ver-la-era-de-hielo-2', idLink: '' },
+        { link: 'ver-la-era-de-hielo-3', idLink: '' },
+        { link: 'ver-la-era-de-hielo-4', idLink: '' },
+        { link: 'ver-la-era-de-hielo-5', idLink: '' },
+        { link: 'ver-la-propuesta', idLink: '' },
+        { link: 'ver-mis-huellas-a-casa', idLink: '' },
+        { link: 'ver-mi-pobre-angelito-1', idLink: '' },
+        { link: 'ver-mi-pobre-angelito-2', idLink: '' },
+        { link: 'ver-mi-pobre-angelito-3', idLink: '' },
+        { link: 'ver-el-joven-manos-de-tijeras', idLink: '' },
+        { link: 'ver-paternidad', idLink: '' },
+        { link: 'ver-desconectados', idLink: '1Oaa_9IUvuaT9_4cImkefjCGxkHfbrZfj' },
+    ];
+
+    // Función para obtener el valor de un parámetro en la URL
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
+
+    // Obtener el valor del parámetro 'id'
+    const videoId = getQueryParam('id');
+
+    // Encontrar el video según el ID
+    const video = movies.find(video => video.link === videoId);
+    const idTableEntry = IdTable.find(idTable => idTable.link === videoId);
+
+    // Establecer el título y el enlace del video
+    if (video && idTableEntry) {
+        document.getElementById('video-title').textContent = video .title;
+        document.getElementById('video-frame').src = `https://drive.google.com/file/d/${idTableEntry.idLink}/preview`;
+    } else {
+        document.getElementById('video-title').textContent = 'Video no encontrado';
+        document.getElementById('video-frame').src = '';
+    }
+</script>
+
+</body>
+</html>
