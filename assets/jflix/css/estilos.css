@@ -119,7 +119,7 @@
   
   .featured-content {
 	height: 80vh;
-	background: linear-gradient(0deg, var(--netflix-black) 0%, transparent 50%), url('../assets/jflix/img/up-back.jpg');
+	background: linear-gradient(0deg, var(--netflix-black) 0%, transparent 50%), url('../img/up-back.jpg');
 	background-size: cover;
 	background-position: center;
 	padding: 40px;

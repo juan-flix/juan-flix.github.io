@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	const netflixIntro = document.querySelector('.netflix-intro');
 
 	const moviesData = {
-		popular: [
+		avaliables: [
 		{ title: 'Loca por las compras', image: 'poster-lpc.jpeg', link: 'ver-loca-por-las-compras' },
 { title: 'Mi villano favorito 4', image: 'poster-mvf4.jpeg', link: 'ver-mi-villano-favorito-4' },
 { title: 'UP: Una aventura en las alturas', image: 'poster-up.jpeg', link: 'ver-up' },
@@ -38,12 +38,20 @@ document.addEventListener('DOMContentLoaded', function() {
 { title: 'Desconectados', image: 'poster-d.jpeg', link: 'ver-desconectados' },
 
 		],
-		trending: [
+		recents: [
 			{ title: 'Mi pobre angelito 2', image: 'poster-mpa2.jpeg', link: 'ver-mi-pobre-angelito-2' },
 			{ title: 'Mi pobre angelito 3', image: 'poster-mpa3.jpeg', link: 'ver-mi-pobre-angelito-3' },
 			{ title: 'El Joven Manos De Tiajera', image: 'poster-ejmdt.jpg', link: 'ver-el-joven-manos-de-tijeras' },
 			{ title: 'Paternidad', image: 'poster-p.jpeg', link: 'ver-paternidad' },
 			{ title: 'Desconectados', image: 'poster-d.jpeg', link: 'ver-desconectados' },
+
+		],
+
+		documental: [
+			{ title: 'Gir: Ultimo refugio del león asiático', image: 'poster-d-gir.jpg', link: 'ver-d-gir' },
+			{ title: 'Viaje a la patagonia chilena', image: 'poster-d-pchilena.jpg', link: 'ver-d-pchilena' },
+			{ title: 'Kanha: La tierra del tigre', image: 'poster-d-tierra-tigre.jpg', link: 'ver-d-tierra-tigre' },
+			{ title: 'Madagascar: Los hijos de lemuria', image: 'poster-d-lemuria.jpg', link: 'ver-d-lemuria' },
 
 		]
 	};
@@ -65,8 +73,9 @@ document.addEventListener('DOMContentLoaded', function() {
 		section.innerHTML = movies.map(movie => createMovieCard(movie)).join('');
 	}
 
-	renderMovies('popular', moviesData.popular);
-	renderMovies('trending', moviesData.trending);
+	renderMovies('avaliables', moviesData.avaliables);
+	renderMovies('recents', moviesData.recents);
+	renderMovies('documental', moviesData.documental);
 });
 
 function MovieFeaturedPlay() {

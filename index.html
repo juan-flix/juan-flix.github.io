@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenido a Juan Fli+</title>
+    <title>Bienvenido a Juan Flix+</title>
     <style>
         body {
             background-color: #141414;
@@ -86,15 +86,6 @@
             transition: opacity 0.5s ease;
         }
 
-        .fade-out {
-            animation: fadeOut 0.5s forwards;
-        }
-
-        @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
-        }
-
         .fade-in {
             animation: fadeIn 0.5s forwards;
         }
@@ -112,15 +103,19 @@
 </head>
 <body>
     <div class="container" id="container">
-      <div id="welcome">
-        <h1>Bienvenido a Juan Flix+</h1>
-         <div id="formulario">
-            <input type="text" id="nombre" placeholder="Introduce tu nombre" required>
-            <input type="number" id="edad" placeholder="Introduce tu edad" required>
-            <br>
-            <button onclick="guardarDatos()">Iniciar</button>
+        <div id="welcome">
+            <h1>Bienvenido a Juan Flix+</h1>
+            <div id="pinForm">
+                <input type="password" id="pin" placeholder="Ingresa tu PIN" required>
+                <button onclick="verificarPin()">Verificar PIN</button>
+            </div>
+            <div id="formulario" class="hidden">
+                <input type="text" id="nombre" placeholder="Introduce tu nombre" required>
+                <input type="number" id="edad" placeholder="Introduce tu edad" required>
+                <br>
+                <button onclick="guardarDatos()">Iniciar</button>
+            </div>
         </div>
-      </div>
        
         <p id="mensaje"></p>
         <p id="mensajeBienvenida"></p>
@@ -128,16 +123,42 @@
     </div>
    
     <script>
+        // Variable global para almacenar los PINs válidos
+        let validPins = [];
+
+        // Función para cargar los PINs desde una web externa
+        async function cargarPins() {
+            try {
+                const response = await fetch('https://tu-web-con tenido-de-pins.com/pins'); // URL de la API que devuelve los PINs
+                validPins = await response.json();
+            } catch (error) {
+                console.error('Error al cargar los PINs:', error);
+            }
+        }
+
+        // Función para verificar el PIN ingresado
+        function verificarPin() {
+            const pin = document.getElementById('pin').value;
+            const mensaje = document.getElementById('mensaje');
+
+            if (validPins.includes(pin)) {
+                document.getElementById('pinForm').style.display = 'none'; // Ocultar formulario de PIN
+                document.getElementById('formulario').classList.remove('hidden'); // Mostrar formulario de bienvenida
+                mensaje.innerText = ''; // Limpiar mensaje
+            } else {
+                mensaje.innerText = 'PIN incorrecto. Inténtalo de nuevo.';
+                mensaje.style.opacity = 1; // Hacer visible el mensaje
+            }
+        }
+
         // Función para guardar una cookie de sesión
-    function guardarSesion() {
+        function guardarSesion() {
             const fechaExpiracion = new Date();
             fechaExpiracion.setTime(fechaExpiracion.getTime() + (1 * 60 * 60 * 1000)); // 1 hora
             document.cookie = `sesion=true; path=/; expires=${fechaExpiracion.toUTCString()}; SameSite=Lax`; // Guardar cookie de sesión
         }
 
-      const welcomeDiv = document.getElementById("welcome");
-
-    // Función para guardar datos en cookies
+        // Función para guardar datos en cookies
         function setCookie(nombre, valor, dias) {
             const d = new Date();
             d.setTime(d.getTime() + (dias * 24 * 60 * 60 * 1000));
@@ -164,29 +185,30 @@
 
         // Función para mostrar mensaje de bienvenida o guardar datos
         function guardarDatos() {
-          const btnAceptar = document.getElementById('btnAceptar');
+            const btnAceptar = document.getElementById('btnAceptar');
             const nombre = document.getElementById('nombre').value;
             const edad = document.getElementById('edad').value;
             const mensaje = document.getElementById('mensaje');
 
             if (nombre && edad) {
-              formulario.style.display = 'none'; // Ocultar el formulario
-                welcomeDiv.style.display = 'none'; // Ocultar el formulario       
-                btnAceptar.style.display = "block"
+                document.getElementById('formulario').style.display = 'none'; // Ocultar el formulario
+                btnAceptar.style.display = "block";
                 setCookie("nombre", nombre, 7); // Guardar nombre en cookies por 7 días
                 setCookie("edad", edad, 7); // Guardar edad en cookies por 7 días
                 mensaje.innerText = `¡Bienvenid@ ${nombre}! Tienes ${edad} años. Bienvenido a Juan Flix+`;
                 mensaje.style.opacity = 1; // Hacer visible el mensaje
                 guardarSesion(); // Guardar cookie de sesión
             } else {
-                mensaje.innerText = 'Por favor, completa todos los campos.';
-                mensaje.style.opacity = 1; // Hacer visible el mensaje
+                if (nombre.trim() === "" || edad.trim() === "" || isNaN(edad)) {
+                    mensaje.innerText = 'Por favor, completa todos los campos con datos válidos.';
+                    mensaje.style.opacity = 1; // Hacer visible el mensaje
+                }
             }
         }
 
         // Mostrar mensaje de bienvenida si ya hay cookies
         window.onload = function() {
-          
+            cargarPins(); // Cargar los PINs al iniciar
             const nombre = getCookie("nombre");
             const edad = getCookie("edad");
             const mensaje = document.getElementById('mensaje');
@@ -195,28 +217,24 @@
             const btnAceptar = document.getElementById('btnAceptar');
 
             if (nombre && edad) {
-              formulario.style.display = 'none'; // Ocultar el formulario
-                welcomeDiv.style.display = 'none'; // Ocultar el formulario       
-                btnAceptar.style.display = "block"
-                
-                mensajeBienvenida.innerText = `¡Bienvenido de nuevo ${nombre}! Tienes ${edad} años. Disfruta de Juan Fli+!`;
+                formulario.style.display = 'none'; // Ocultar el formulario
+                btnAceptar.style.display = "block";
+                mensajeBienvenida.innerText = `¡Bienvenido de nuevo ${nombre}! Tienes ${edad} años. Disfruta de Juan Flix+!`;
                 mensajeBienvenida.style.display = 'block'; // Mostrar mensaje de bienvenida
                 mensajeBienvenida.style.opacity = 1; // Hacer visible el mensaje
-                btnAceptar.style.display = 'block'; // Mostrar botón "Aceptar"
             }
         }
 
         // Función para cerrar el mensaje de bienvenida
-        function cerrarBienvenida() {
+ function cerrarBienvenida() {
             const container = document.getElementById('container');
             const mensajeBienvenida = document.getElementById('mensajeBienvenida');
             const btnAceptar = document.getElementById('btnAceptar');
-            const contenido = document.getElementById('contenido');
 
             container.classList.add('blur'); // Añadir clase de desenfoque
             setTimeout(() => {
                 container.style.display = 'none'; // Ocultar contenedor
-                window.location = 'home-cont.html'
+                window.location = 'home-cont.html';
             }, 1500); // Aumentar tiempo de espera antes de ocultar el contenedor
         }
     </script>
