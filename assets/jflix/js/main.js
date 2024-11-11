@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		`;
 	}
 
-	function renderMovies(sectionId, movies) {
+ function renderMovies(sectionId, movies) {
 		const section = document.getElementById(sectionId);
 		section.innerHTML = movies.map(movie => createMovieCard(movie)).join('');
 	}
@@ -95,3 +95,4 @@ function MyListOpen() {
 function HomeOpen() {
 	window.location.href="../home/"
 }
+
