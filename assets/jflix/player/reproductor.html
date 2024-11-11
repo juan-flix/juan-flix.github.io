@@ -68,13 +68,13 @@
 
 <div class="container">
     <h1 id="video-title">Reproductor de Video</h1>
-    <iframe id="video-frame" src="" allow="autoplay" sandbox="allow-same-origin allow-scripts"></iframe>
+    <iframe id="video-frame" src="" allowfullscreen allow="autoplay" sandbox="allow-same-origin allow-scripts"></iframe>
 </div>
 
 <script>
     // Lista de videos como un objeto JSON
     const movies = [
-        { title: 'Loca por las compras', link: 'ver-loca-por-las-compras' },
+      { title: 'Loca por las compras', link: 'ver-loca-por-las-compras' },
         { title: 'Mi villano favorito 4', link: 'ver-mi-villano-favorito-4' },
         { title: 'UP: Una aventura en las alturas', link: 'ver-up' },
         { title: 'Un vecino gruñón', link: 'ver-un-vecino-gruñón' },
@@ -139,6 +139,8 @@
         { link: 'ver-paternidad', idLink: '' },
         { link: 'ver-desconectados', idLink: '1Oaa_9IUvuaT9_4cImkefjCGxkHfbrZfj' },
     ];
+    
+    const url = new URL(window.location.href);
 
     // Función para obtener el valor de un parámetro en la URL
     function getQueryParam(param) {
@@ -156,9 +158,12 @@
     // Establecer el título y el enlace del video
     if (video && idTableEntry) {
         document.getElementById('video-title').textContent = video .title;
-        document.getElementById('video-frame').src = `https://drive.google.com/file/d/${idTableEntry.idLink}/preview`;
+        document.getElementById('video-frame').src = `https://drive.google.com/file/d/${idTableEntry.idLink}/preview?usp=embed_googleplus`;
+         // Quitar parámetro id de la URL
+        url.searchParams.delete('id');
+        window.history.pushState({}, '', url.href);
     } else {
-        document.getElementById('video-title').textContent = 'Video no encontrado';
+        document.getElementById('video-title').textContent = 'Video no encontrado, por favor especifica el API';
         document.getElementById('video-frame').src = '';
     }
 </script>
