@@ -1,0 +1,220 @@
+<html><head><base href="." target="_blank">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Juan Flix+ | Elige tu plan</title>
+<style>
+:root {
+    --netflix-red: #e50914;
+    --netflix-dark: #141414;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('https://juan-flix.github.io/assets/jflix/img/j-flix-back.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+}
+
+.plans-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.plan-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 30px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.plan-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--netflix-red);
+    box-shadow: 0 10px 30px rgba(229, 9, 20, 0.2);
+}
+
+.plan-name {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.plan-price {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--netflix-red);
+}
+
+.plan-features {
+    list-style: none;
+}
+
+.plan-features li {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.plan-features li::before {
+    content: "✓";
+    color: var(--netflix-red);
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.subscribe-btn {
+    background: var(--netflix-red);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: calc(100% - 20px);
+    display: block;
+    text-decoration: none;
+    text-align: center;
+}
+
+.subscribe-btn:hover {
+    background: #f40612;
+    transform: scale(1.05);
+}
+
+.header {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.header h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.header p {
+    font-size: 20px;
+    color: #ccc;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.plan-card {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.plan-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.plan-card:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 32px;
+    }
+    
+    .header p {
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <img src="https://juan-flix.github.io/assets/jflix/img/jflix-logo.png" alt="JFlix Logo" class="logo">
+        </nav>
+
+        <div class="header">
+            <h1>Elige el plan adecuado para ti</h1>
+            <p>Mira Juan Flix+ en todos tus dispositivos.</p>
+        </div>
+
+        <div class="plans-container">
+            <div class="plan-card">
+                <div class="plan-name">Básico</div>
+                <div class="plan-price">$2.500/mes</div>
+                <ul class="plan-features">
+                    <li>Calidad HD</li>
+                    <li>1 dispositivo a la vez</li>
+                    <li>Sin anuncios</li>
+                </ul>
+                <a href="https://wa.me/3104573859?text=Quiero%20la%20suscripción%20de%20Juan%20Flix+%20:%20Básico" class="subscribe-btn">Suscribirse</a>
+            </div>
+
+            <div class="plan-card">
+                <div class="plan-name">Estándar</div>
+                <div class="plan-price">$3.000/mes</div>
+                <ul class="plan-features">
+                    <li>Calidad Full HD</li>
+                    <li>2 dispositivos a la vez</li>
+                    <li>Sin anuncios</li>
+                    <li>Compartir cuenta</li>
+                </ul>
+                <a href="https://wa.me/3104573859?text=Quiero%20la%20suscripción%20de%20Juan%20Flix+%20:%20Estándar" class="subscribe-btn">Suscribirse</a>
+            </div>
+
+            <div class="plan-card">
+                <div class="plan-name">Premium</div>
+                <div class="plan-price">$3.500/mes</div>
+                <ul class="plan-features">
+                    <li>Calidad Ultra HD 4K</li>
+                    <li>4 dispositivos a la vez</li>
+                    <li>Sin anuncios</li>
+                    <li>Compartir cuenta</li>
+                    <li>Audio espacial</li>
+                </ul>
+                <a href="https://wa.me/3104573859?text=Quiero%20la%20suscripción%20de%20Juan%20Flix+%20:%20Premium" class="subscribe-btn">Suscribirse</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
