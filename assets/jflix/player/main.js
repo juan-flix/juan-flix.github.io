@@ -49,6 +49,7 @@ const movieData = [
   { title: 'El Joven Manos De Tijera', image: 'poster-ejmdt.jpg', link: 'mId=162&mLink=ver-el-joven-manos-de-tijeras' , id: '162' },
   { title: 'Paternidad', image: 'poster-p.jpeg', link: 'mId=607259&mLink=ver-paternidad' , id: '607259' },
   { title: 'Desconectados', image: 'poster-d.jpeg', link: 'mId=1062088&&mLink=ver-desconectados' , id: '1062088' },
+  { title: 'Monsters Inc.', image:'poster-mi.jpg', link: 'mId=585&mLink=ver-monsters' , id: '585' },
       
 ];
 
@@ -85,7 +86,7 @@ const driveIds = {
 "162": "1OrZ5WgnYDurPxLsQTe3EFJvRYpR6jHpO",
 "607259": "1ZQq7RJ6n--q3VIo-0iHqS1TrMrsGEe1M",
 "1062088": "1Oaa_9IUvuaT9_4cImkefjCGxkHfbrZfj",
-
+"585": "1-UIqNkqgwaEoRy0cN4z6FmlDNiVuSGc8"
 };
 
 function showError(title, message, duration = 5000) {

@@ -99,13 +99,14 @@
 { title: 'El Joven Manos De Tijera', image: 'poster-ejmdt.jpg', link: 'mId=162&mLink=ver-el-joven-manos-de-tijeras' , id: '162' },
 { title: 'Paternidad', image: 'poster-p.jpeg', link: 'mId=607259&mLink=ver-paternidad' , id: '607259' },
 { title: 'Desconectados', image: 'poster-d.jpeg', link: 'mId=1062088&&mLink=ver-desconectados' , id: '1062088' },
+{ title: 'Monsters Inc.', image:'poster-mi.jpg', link: 'mId=585&mLink=ver-monsters' , id: '585' },
 		],
 		recents: [
-			{ title: 'Mi pobre angelito 2', image: 'poster-mpa2.jpeg', link: 'mId=772&mLink=ver-mi-pobre-angelito-2' , id: '772' },
-{ title: 'Mi pobre angelito 3', image: 'poster-mpa3.jpeg', link: 'mId=9714&mLink=ver-mi-pobre-angelito-3' , id: '9714' },
+			{ title: 'Mi pobre angelito 3', image: 'poster-mpa3.jpeg', link: 'mId=9714&mLink=ver-mi-pobre-angelito-3' , id: '9714' },
 { title: 'El Joven Manos De Tijera', image: 'poster-ejmdt.jpg', link: 'mId=162&mLink=ver-el-joven-manos-de-tijeras' , id: '162' },
 { title: 'Paternidad', image: 'poster-p.jpeg', link: 'mId=607259&mLink=ver-paternidad' , id: '607259' },
-{ title: 'Desconectados', image: 'poster-d.jpeg', link: 'mId=1062088&mLink=ver-desconectados' , id: '1062088' },
+{ title: 'Desconectados', image: 'poster-d.jpeg', link: 'mId=1062088&&mLink=ver-desconectados' , id: '1062088' },
+{ title: 'Monsters Inc.', image:'poster-mi.jpg', link: 'mId=585&mLink=ver-monsters' , id: '585' },
 		],
 		documental: [
 			{ title: 'Gir: Ultimo refugio del león asiático', image: 'poster-d-gir.jpg', link: 'documental=ver-d-gir' , id: '' },
