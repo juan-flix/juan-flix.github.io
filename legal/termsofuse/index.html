@@ -1,0 +1,245 @@
+<html><head><base href="." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JFlix - Términos de Uso</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Netflix Sans', Arial, sans-serif;
+    }
+
+    body {
+        background-color: #141414;
+        color: #fff;
+        line-height: 1.6;
+    }
+
+    .header {
+        background-color: #000;
+        padding: 20px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #333;
+    }
+
+    .netflix-logo {
+        width: 150px;
+        height: auto;
+        transition: transform 0.3s ease;
+    }
+
+    .netflix-logo:hover {
+        transform: scale(1.05);
+    }
+
+    .buttons {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .language-select {
+        background: rgba(0, 0, 0, 0.4);
+        color: white;
+        padding: 10px 20px;
+        border: 1px solid #fff;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .sign-in-btn {
+        background: #e50914;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 500;
+    }
+
+    .terms-section {
+        max-width: 1000px;
+        margin: 50px auto;
+        padding: 0 20px;
+    }
+
+    .terms-title {
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    .terms-content {
+        background-color: #232323;
+        padding: 30px;
+        border-radius: 8px;
+    }
+
+    .terms-content h2 {
+        color: #e50914;
+        margin: 20px 0 10px 0;
+        font-size: 1.5rem;
+    }
+
+    .terms-content p {
+        margin-bottom: 15px;
+        color: #cccccc;
+    }
+
+    .terms-content ul {
+        margin-left: 20px;
+        margin-bottom: 15px;
+        color: #cccccc;
+    }
+
+    .terms-content li {
+        margin-bottom: 8px;
+    }
+
+    footer {
+        background-color: #000;
+        padding: 70px 50px;
+        color: #757575;
+        margin-top: 50px;
+    }
+
+    .footer-bottom {
+        max-width: 1000px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    @media (max-width: 768px) {
+        .header {
+            padding: 20px;
+        }
+
+        .netflix-logo {
+            width: 100px;
+        }
+
+        .terms-title {
+            font-size: 2rem;
+        }
+
+        .terms-content {
+            padding: 20px;
+        }
+    }
+</style>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html">
+            <img src="https://juan-flix.github.io/assets/jflix/img/jflix-logo.png" alt="JFlix Logo" class="netflix-logo">
+        </a>
+        <div class="buttons">
+            <select class="language-select">
+                <option value="es">Español</option>
+                <option value="en">English</option>
+            </select>
+            <button class="sign-in-btn">Iniciar sesión</button>
+        </div>
+    </header>
+
+    <section class="terms-section">
+        <h1 class="terms-title">Términos de Uso</h1>
+        
+        <div class="terms-content">
+            <h2>1. Aceptación de los Términos de Uso</h2>
+            <p>Al acceder y utilizar los servicios de JFlix, usted acepta estar sujeto a estos Términos de Uso. Si no está de acuerdo con estos términos, por favor no utilice nuestros servicios.</p>
+
+            <h2>2. Suscripción</h2>
+            <p>Para utilizar JFlix, debe crear una cuenta y mantener una suscripción activa. Los precios y las condiciones de la suscripción pueden variar según el plan elegido.</p>
+
+            <h2>3. Licencia de Uso</h2>
+            <p>JFlix le otorga una licencia limitada, no exclusiva y no transferible para acceder y utilizar el servicio de streaming para su entretenimiento personal y no comercial.</p>
+
+            <h2>4. Restricciones de Uso</h2>
+            <ul>
+                <li>No puede compartir su cuenta con personas fuera de su hogar</li>
+                <li>No puede usar el servicio para fines comerciales</li>
+                <li>No puede copiar, reproducir o distribuir el contenido de JFlix</li>
+                <li>No puede eludir las medidas de seguridad del servicio</li>
+            </ul>
+
+            <h2>5. Contenido</h2>
+            <p>El contenido disponible en JFlix puede variar según la región y está sujeto a cambios sin previo aviso. Todo el contenido está protegido por derechos de autor.</p>
+
+            <h2>6. Privacidad</h2>
+            <p>Su uso del servicio está sujeto a nuestra Política de Privacidad, que describe cómo recopilamos y utilizamos su información personal.</p>
+
+            <h2>7. Modificaciones</h2>
+            <p>JFlix se reserva el derecho de modificar estos Términos de Uso en cualquier momento. Los cambios entrarán en vigor inmediatamente después de su publicación en el sitio web.</p>
+
+            <h2>8. Cancelación</h2>
+            <p>Puede cancelar su suscripción en cualquier momento. La cancelación será efectiva al final del período de facturación actual.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>© 2023 JFlix. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const languageSelect = document.querySelector('.language-select');
+            
+            const translations = {
+                en: {
+                    title: "Terms of Use",
+                    signIn: "Sign In",
+                    sections: {
+                        acceptance: "1. Acceptance of Terms",
+                        subscription: "2. Subscription",
+                        license: "3. License",
+                        restrictions: "4. Usage Restrictions",
+                        content: "5. Content",
+                        privacy: "6. Privacy",
+                        modifications: "7. Modifications",
+                        cancellation: "8. Cancellation"
+                    },
+                    footer: "© 2023 JFlix. All rights reserved."
+                },
+                es: {
+                    title: "Términos de Uso",
+                    signIn: "Iniciar sesión",
+                    sections: {
+                        acceptance: "1. Aceptación de los Términos de Uso",
+                        subscription: "2. Suscripción",
+                        license: "3. Licencia de Uso",
+                        restrictions: "4. Restricciones de Uso",
+                        content: "5. Contenido",
+                        privacy: "6. Privacidad",
+                        modifications: "7. Modificaciones",
+                        cancellation: "8. Cancelación"
+                    },
+                    footer: "© 2023 JFlix. Todos los derechos reservados."
+                }
+            };
+
+            function updateLanguage(lang) {
+                document.querySelector('.terms-title').textContent = translations[lang].title;
+                document.querySelector('.sign-in-btn').textContent = translations[lang].signIn;
+                
+                const headings = document.querySelectorAll('.terms-content h2');
+                headings.forEach((heading, index) => {
+                    const sectionKey = Object.keys(translations[lang].sections)[index];
+                    heading.textContent = translations[lang].sections[sectionKey];
+                });
+                
+                document.querySelector('.footer-bottom p').textContent = translations[lang].footer;
+            }
+
+            languageSelect.addEventListener('change', (e) => {
+                updateLanguage(e.target.value);
+            });
+        });
+    </script>
+</body>
+</html>

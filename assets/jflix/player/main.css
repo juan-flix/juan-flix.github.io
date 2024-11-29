@@ -1,0 +1,184 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: #000;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-image 0.5s ease-in-out;
+  }
+
+  .backdrop-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.75);
+    z-index: 1;
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+  }
+
+  .player-container {
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .movie-title {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    opacity: 0;
+    animation: fadeIn 0.6s ease-out 0.3s forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .plyr {
+    --plyr-color-main: #e50914;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+  }
+
+  .plyr:hover {
+    transform: scale(1.01);
+  }
+
+  #player {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #000;
+    border-radius: 8px;
+  }
+
+  #video-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+  }
+
+  .error-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(220, 53, 69, 0.95);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    z-index: 1000;
+    max-width: 350px;
+    animation: slideIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), 
+               fadeOut 0.3s ease-out 4.7s;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(4px);
+  }
+
+  .error-title {
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+  }
+
+  .error-message {
+    margin: 0;
+    font-size: 0.95em;
+    line-height: 1.4;
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateX(120%) scale(0.9);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0) scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+
+  .not-found-container {
+    text-align: center;
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 12px;
+    margin-top: 50px;
+    backdrop-filter: blur(10px);
+    transform: translateY(20px);
+    animation: slideUpFade 0.5s ease-out forwards;
+  }
+
+  @keyframes slideUpFade {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .not-found-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 15px;
+    color: #e50914;
+    font-weight: 600;
+  }
+
+  .not-found-message {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: #ffffff;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .player-container {
+      width: 95%;
+      padding: 10px;
+    }
+
+    .error-container {
+      width: 90%;
+      right: 50%;
+      transform: translateX(50%);
+    }
+  }

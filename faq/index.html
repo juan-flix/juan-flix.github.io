@@ -1,0 +1,252 @@
+<html><head><base href="." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JFlix - Preguntas Frecuentes</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Netflix Sans', Arial, sans-serif;
+    }
+
+    body {
+        background-color: #141414;
+        color: #fff;
+        line-height: 1.6;
+    }
+
+    .header {
+        background-color: #000;
+        padding: 20px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #333;
+    }
+
+    .netflix-logo {
+        width: 150px;
+        height: auto;
+        transition: transform 0.3s ease;
+    }
+
+    .netflix-logo:hover {
+        transform: scale(1.05);
+    }
+
+    .buttons {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .language-select {
+        background: rgba(0, 0, 0, 0.4);
+        color: white;
+        padding: 10px 20px;
+        border: 1px solid #fff;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .sign-in-btn {
+        background: #e50914;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 500;
+    }
+
+    .faq-section {
+        max-width: 1000px;
+        margin: 50px auto;
+        padding: 0 20px;
+    }
+
+    .faq-title {
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    .faq-item {
+        margin-bottom: 15px;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+    .faq-question {
+        width: 100%;
+        background-color: #303030;
+        padding: 20px 30px;
+        border: none;
+        color: white;
+        font-size: 1.2rem;
+        text-align: left;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background-color 0.3s ease;
+    }
+
+    .faq-question:hover {
+        background-color: #404040;
+    }
+
+    .faq-icon {
+        font-size: 1.5rem;
+        transition: transform 0.3s ease;
+    }
+
+    .faq-answer {
+        background-color: #303030;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .faq-answer p {
+        padding: 20px 30px;
+        color: white;
+    }
+
+    .faq-item.active .faq-icon {
+        transform: rotate(45deg);
+    }
+
+    .faq-item.active .faq-answer {
+        max-height: 300px;
+        margin-top: 2px;
+    }
+
+    footer {
+        background-color: #000;
+        padding: 70px 50px;
+        color: #757575;
+        margin-top: 50px;
+    }
+
+    .footer-bottom {
+        max-width: 1000px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    @media (max-width: 768px) {
+        .header {
+            padding: 20px;
+        }
+
+        .netflix-logo {
+            width: 100px;
+        }
+
+        .faq-title {
+            font-size: 2rem;
+        }
+
+        .faq-question {
+            font-size: 1.1rem;
+            padding: 15px 20px;
+        }
+
+        .faq-answer p {
+            padding: 15px 20px;
+        }
+    }
+</style>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html">
+            <img src="https://juan-flix.github.io/assets/jflix/img/jflix-logo.png" alt="JFlix Logo" class="netflix-logo">
+        </a>
+        <div class="buttons">
+            <select class="language-select">
+                <option value="es">Español</option>
+                <option value="en">English</option>
+            </select>
+            <button class="sign-in-btn">Iniciar sesión</button>
+        </div>
+    </header>
+
+    <section class="faq-section">
+        <h1 class="faq-title">Preguntas frecuentes</h1>
+        
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question">
+                    ¿Qué es JFlix?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>JFlix es un servicio de streaming que ofrece una amplia variedad de películas, series y documentales premiados en casi cualquier pantalla conectada a internet.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    ¿Cuánto cuesta JFlix?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Disfruta JFlix en tu smartphone, tablet, Smart TV, laptop o dispositivo de streaming, todo por una tarifa mensual única.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    ¿Dónde puedo ver JFlix?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Ve donde quieras, cuando quieras. Inicia sesión en tu cuenta de JFlix para ver contenido al instante a través de JFlix.com desde tu computadora personal o en cualquier dispositivo conectado a internet.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    ¿Cómo cancelo?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>JFlix es flexible. Sin contratos molestos ni compromisos. Puedes cancelar tu cuenta fácilmente en línea con solo dos clics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>© 2023 JFlix. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

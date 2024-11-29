@@ -1,0 +1,142 @@
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../jflix-favicon.png">
+<title>Juan Flix+ | Iniciar sesión</title>
+<link rel="stylesheet" href="../assets/jflix/css/login.css">
+</head>
+<body>
+<div class="container">
+<div class="logo">
+    <img src="../assets/jflix/img/jflix-logo.png" alt="Logo"> 
+</div>
+    <div id="pinForm">
+        <h1>Ingresa tu PIN</h1>
+        <div class="form-control">
+            <input type="password" id="pin" placeholder="PIN" pattern="[0-9]*">
+            <div id="pinError" class="error hidden">PIN incorrecto</div>
+        </div>
+        <button onclick="verificarPin()">Continuar</button>
+    </div>
+
+    <div id="userForm" class="hidden">
+        <h1>Completa tu perfil</h1>
+        <div class="form-control">
+            <input type="text" id="nombre" placeholder="Nombre">
+        </div>
+        <div class="form-control">
+            <input type="number" id="edad" placeholder="Edad" min="1" max="120">
+        </div>
+        <button onclick="guardarPerfil()">Guardar</button>
+    </div>
+
+    <div id="welcome" class="hidden welcome">
+        <h1>¡Bienvenido de nuevo!</h1>
+        <p id="welcomeMessage"></p>
+        <button onclick="redirigir()">Aceptar</button>
+    </div>
+</div>
+
+<script>
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+
+    function setCookie(name, value, days) {
+        const d = new Date();
+        d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+        const expires = `expires=${d.toUTCString()}`;
+        document.cookie = `${name}=${value};${expires};path=/`;
+    }
+
+    window.onload = function() {
+        const sesion = getCookie('sesion');
+        const nombre = getCookie('nombre');
+        const edad = getCookie('edad');
+
+        if (sesion && nombre && edad) {
+          verificarPinCookie();  
+        }
+    };
+
+    async function verificarPin() {
+        const pin = document.getElementById('pin').value;
+        const pinError = document.getElementById('pinError');
+        
+
+        try {
+            const response = await fetch('https://cdn-jdev.github.io/jflix/pins/');
+            const data = await response.json();
+            
+            if (data.pins.includes(pin)) {
+                document.getElementById('pinForm').classList.add('hidden');
+                document.getElementById('userForm').classList.remove('hidden');
+                setCookie('sesion', btoa(pin), 30);
+            } else {
+                pinError.classList.remove('hidden');
+            }
+        } catch (error) {
+            console.error('Error al verificar PIN:', error);
+            pinError.textContent = 'Error al verificar PIN. Intenta nuevamente.';
+            pinError.classList.remove('hidden');
+        }
+    }
+
+
+    async function verificarPinCookie() {
+        const sesion = getCookie('sesion');
+        const sesionDecoded = atob(sesion);
+        const nombre = getCookie('nombre');
+        const edad = getCookie('edad');
+       
+
+        try {
+            const response = await fetch('https://cdn-jdev.github.io/jflix/pins/');
+            const data = await response.json();
+            
+            if (data.pins.includes(sesionDecoded)) {
+                document.getElementById('pinForm').classList.add('hidden');
+                document.getElementById('userForm').classList.remove('hidden');
+                document.getElementById('pinForm').classList.add('hidden');
+            document.getElementById('userForm').classList.add('hidden');
+            document.getElementById('welcome').classList.remove('hidden');
+            document.getElementById('welcomeMessage').textContent = 
+                `${nombre}, ${edad} años`;
+            } else {
+                pinError.classList.remove('hidden');
+            }
+        } catch (error) {
+            console.error('Error al verificar PIN:', error);
+            pinError.textContent = 'Error al verificar PIN. Intenta nuevamente.';
+            pinError.classList.remove('hidden');
+        }
+    }
+
+    function guardarPerfil() {
+        const nombre = document.getElementById('nombre').value;
+        const edad = document.getElementById('edad').value;
+
+        if (nombre && edad) {
+            setCookie('nombre', nombre, 30);
+            setCookie('edad', edad, 30);
+
+            document.getElementById('userForm').classList.add('hidden');
+            document.getElementById('welcome').classList.remove('hidden');
+            document.getElementById('welcomeMessage').textContent = 
+                `${nombre}, ${edad} años`;
+        }
+    }
+
+    document.getElementById('pin').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            verificarPin();
+        }
+    });
+
+    function redirigir() {
+        window.location.href = "../home";
+    }
+</script>
+</body></html>

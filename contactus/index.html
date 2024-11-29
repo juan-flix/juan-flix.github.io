@@ -1,0 +1,329 @@
+<html><head><base href="." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JFlix - Contáctanos</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Netflix Sans', Arial, sans-serif;
+    }
+
+    body {
+        background-color: #141414;
+        color: #fff;
+        line-height: 1.6;
+    }
+
+    .header {
+        background-color: #000;
+        padding: 20px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #333;
+    }
+
+    .netflix-logo {
+        width: 150px;
+        height: auto;
+        transition: transform 0.3s ease;
+    }
+
+    .netflix-logo:hover {
+        transform: scale(1.05);
+    }
+
+    .buttons {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .language-select {
+        background: rgba(0, 0, 0, 0.4);
+        color: white;
+        padding: 10px 20px;
+        border: 1px solid #fff;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .sign-in-btn {
+        background: #e50914;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 500;
+    }
+
+    .contact-section {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 0 20px;
+    }
+
+    .contact-title {
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    .contact-form {
+        background-color: #232323;
+        padding: 40px;
+        border-radius: 8px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: #fff;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #444;
+        border-radius: 4px;
+        background-color: #333;
+        color: #fff;
+    }
+
+    .form-group textarea {
+        height: 150px;
+        resize: vertical;
+    }
+
+    .submit-btn {
+        background: #e50914;
+        color: white;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1.1rem;
+        width: 100%;
+        transition: background-color 0.3s;
+    }
+
+    .submit-btn:hover {
+        background: #f40612;
+    }
+
+    .contact-info {
+        margin-top: 40px;
+        text-align: center;
+    }
+
+    .contact-info p {
+        margin-bottom: 10px;
+        color: #cccccc;
+    }
+
+    footer {
+        background-color: #000;
+        padding: 70px 50px;
+        color: #757575;
+        margin-top: 50px;
+    }
+
+    .footer-bottom {
+        max-width: 1000px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    @media (max-width: 768px) {
+        .header {
+            padding: 20px;
+        }
+
+        .netflix-logo {
+            width: 100px;
+        }
+
+        .contact-title {
+            font-size: 2rem;
+        }
+
+        .contact-form {
+            padding: 20px;
+        }
+    }
+</style>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html">
+            <img src="https://juan-flix.github.io/assets/jflix/img/jflix-logo.png" alt="JFlix Logo" class="netflix-logo">
+        </a>
+        <div class="buttons">
+            <select class="language-select">
+                <option value="es">Español</option>
+                <option value="en">English</option>
+            </select>
+            <button class="sign-in-btn">Iniciar sesión</button>
+        </div>
+    </header>
+
+    <section class="contact-section">
+        <h1 class="contact-title">Contáctanos</h1>
+        
+        <form class="contact-form" id="contactForm">
+            <div class="form-group">
+                <label for="name">Nombre completo</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="subject">Asunto</label>
+                <select id="subject" name="subject" required>
+                    <option value="">Selecciona un asunto</option>
+                    <option value="technical">Problemas técnicos</option>
+                    <option value="account">Problemas con la cuenta</option>
+                    <option value="billing">Facturación</option>
+                    <option value="content">Contenido</option>
+                    <option value="other">Otro</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Mensaje</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Enviar mensaje</button>
+        </form>
+
+        <div class="contact-info">
+            <p>También puedes contactarnos a través de:</p>
+            <p>Email: soporte@jflix.com</p>
+            <p>Teléfono: 1-800-JFLIX</p>
+            <p>Horario de atención: Lunes a Domingo, 24/7</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>© 2023 JFlix. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const languageSelect = document.querySelector('.language-select');
+            const contactForm = document.getElementById('contactForm');
+            
+            const translations = {
+                en: {
+                    title: "Contact Us",
+                    signIn: "Sign In",
+                    name: "Full Name",
+                    email: "Email",
+                    subject: "Subject",
+                    message: "Message",
+                    send: "Send Message",
+                    contactInfo: "You can also contact us through:",
+                    supportEmail: "Email: support@jflix.com",
+                    phone: "Phone: 1-800-JFLIX",
+                    hours: "Service Hours: Monday to Sunday, 24/7",
+                    footer: "© 2023 JFlix. All rights reserved.",
+                    subjects: {
+                        select: "Select a subject",
+                        technical: "Technical Issues",
+                        account: "Account Issues",
+                        billing: "Billing",
+                        content: "Content",
+                        other: "Other"
+                    }
+                },
+                es: {
+                    title: "Contáctanos",
+                    signIn: "Iniciar sesión",
+                    name: "Nombre completo",
+                    email: "Correo electrónico",
+                    subject: "Asunto",
+                    message: "Mensaje",
+                    send: "Enviar mensaje",
+                    contactInfo: "También puedes contactarnos a través de:",
+                    supportEmail: "Email: soporte@jflix.com",
+                    phone: "Teléfono: 1-800-JFLIX",
+                    hours: "Horario de atención: Lunes a Domingo, 24/7",
+                    footer: "© 2023 JFlix. Todos los derechos reservados.",
+                    subjects: {
+                        select: "Selecciona un asunto",
+                        technical: "Problemas técnicos",
+                        account: "Problemas con la cuenta",
+                        billing: "Facturación",
+                        content: "Contenido",
+                        other: "Otro"
+                    }
+                }
+            };
+
+            function updateLanguage(lang) {
+                document.querySelector('.contact-title').textContent = translations[lang].title;
+                document.querySelector('.sign-in-btn').textContent = translations[lang].signIn;
+                document.querySelector('label[for="name"]').textContent = translations[lang].name;
+                document.querySelector('label[for="email"]').textContent = translations[lang].email;
+                document.querySelector('label[for="subject"]').textContent = translations[lang].subject;
+                document.querySelector('label[for="message"]').textContent = translations[lang].message;
+                document.querySelector('.submit-btn').textContent = translations[lang].send;
+                
+                const subjectSelect = document.getElementById('subject');
+                subjectSelect.innerHTML = `
+                    <option value="">${translations[lang].subjects.select}</option>
+                    <option value="technical">${translations[lang].subjects.technical}</option>
+                    <option value="account">${translations[lang].subjects.account}</option>
+                    <option value="billing">${translations[lang].subjects.billing}</option>
+                    <option value="content">${translations[lang].subjects.content}</option>
+                    <option value="other">${translations[lang].subjects.other}</option>
+                `;
+
+                const contactInfoTexts = document.querySelectorAll('.contact-info p');
+                contactInfoTexts[0].textContent = translations[lang].contactInfo;
+                contactInfoTexts[1].textContent = translations[lang].supportEmail;
+                contactInfoTexts[2].textContent = translations[lang].phone;
+                contactInfoTexts[3].textContent = translations[lang].hours;
+                
+                document.querySelector('.footer-bottom p').textContent = translations[lang].footer;
+            }
+
+            languageSelect.addEventListener('change', (e) => {
+                updateLanguage(e.target.value);
+            });
+
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+
+                const whatsappMessage = `*Nuevo mensaje de contacto JFlix*%0A%0A*Nombre:* ${name}%0A*Email:* ${email}%0A*Asunto:* ${subject}%0A*Mensaje:* ${message}`;
+                const whatsappNumber = '573107836725';
+                const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+                
+                window.open(whatsappLink, '_blank');
+                contactForm.reset();
+            });
+        });
+    </script>
+</body>
+</html>

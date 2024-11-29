@@ -1,318 +1,221 @@
-:root {
-	--netflix-red: #E50914;
-	--netflix-black: #141414;
-	--netflix-dark: #222222;
-	--netflix-white: #FFFFFF;
-  }
-  
-  * {
+* {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: 'Helvetica Neue', Arial, sans-serif;
-  }
-  
-  body {
-	background-color: var(--netflix-black);
-	color: var(--netflix-white);
-	min-height: 100vh;
-  }
-  
-  .netflix-intro {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: black;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	z-index: 2000;
-	animation: fadeOut 1s ease-out 3s forwards;
-  }
-  
-  .netflix-intro .logo-container {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-  }
-  
-  .netflix-intro .logo {
-	width: 100px;
-	height: 250px;
-	position: relative;
-	transform: scale(1.5);
-  }
-  
-  .netflix-intro .logo::before,
-  .netflix-intro .logo::after {
-	content: '';
-	position: absolute;
-	top: 0;
-	width: 33px;
-	height: 250px;
-	background: var(--netflix-red);
-  }
-  
-  .netflix-intro .logo::before {
-	left: -40px;
-	transform: skewX(21.5deg);
-  }
-  
-  .netflix-intro .logo::after {
-	right: -40px;
-	transform: skewX(-21.5deg);
-  }
-  
-  .netflix-intro .text {
-	color: var(--netflix-red);
-	font-size: 3rem;
-	font-weight: bold;
-	margin-top: 2rem;
-	opacity: 0;
-	animation: textFadeIn 1s ease-in 1s forwards;
-  }
-  
-  @keyframes fadeOut {
-	from { opacity: 1; }
-	to { opacity: 0; visibility: hidden; }
-  }
-  
-  @keyframes textFadeIn {
-	from { opacity: 0; transform: translateY(20px); }
-	to { opacity: 1; transform: translateY(0); }
-  }
-  
-  .header {
-	padding: 20px 40px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	background: var(--netflix-black);
+	font-family: 'Arial', sans-serif;
+}
+
+body {
+	background-color: #141414;
+	color: white;
+}
+
+.navbar {
+	background-color: rgba(0,0,0,0.8);
+	padding: 1rem;
 	position: fixed;
 	width: 100%;
 	z-index: 1000;
-  }
-  
-  .netflix-logo {
-	background-image: url('../img/jflix-logo.png');
-	 background-size: cover;
-	background-position: center;
-  }
-  
-  .nav-links {
 	display: flex;
-	gap: 20px;
-  }
-  
-  .nav-links a {
-	color: var(--netflix-white);
+	align-items: center;
+	justify-content: space-between;
+}
+
+.nav-left {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.nav-links {
+	display: flex;
+	gap: 1rem;
+}
+
+.nav-links a {
+	color: white;
 	text-decoration: none;
-	font-size: 14px;
-  }
-  
-  .main-content {
-	padding-top: 70px;
-  }
-  
-  .featured-content {
-	height: 80vh;
-	background: linear-gradient(0deg, var(--netflix-black) 0%, transparent 50%), url('../img/up-back.jpg');
-	background-size: cover;
-	background-position: center;
-	padding: 40px;
+	font-size: 0.9rem;
+	transition: color 0.3s;
+}
+
+.nav-links a:hover {
+	color: #E50914;
+}
+
+.logo {
+	height: 30px;
+	width: auto;
+}
+
+.hero {
+	height: 60vh;
+	background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+				url('https://juan-flix.github.io/assets/jflix/img/up-back.jpg') center/cover;
 	display: flex;
-	align-items: flex-end;
-  }
-  
-  .featured-info {
-	max-width: 600px;
-  }
-  
-  .featured-title {
-	font-size: 3rem;
-	margin-bottom: 20px;
-  }
-  
-  .featured-description {
+	align-items: center;
+	padding: 1rem;
+	margin-bottom: 1rem;
+}
+
+.hero-content {
+	max-width: 100%;
+	margin-top: 60px;
+	padding: 0 1rem;
+}
+
+.hero-content h1 {
+	font-size: 2rem;
+	margin-bottom: 1rem;
+}
+
+.hero-content p {
+	font-size: 0.9rem;
+	margin-bottom: 1rem;
+}
+
+.category {
+	padding: 1rem;
+}
+
+.category h2 {
+	margin-bottom: 1rem;
 	font-size: 1.2rem;
-	margin-bottom: 20px;
-  }
-  
-  .play-button, .more-info-button {
-	padding: 10px 25px;
-	border: none;
-	border-radius: 4px;
-	margin-right: 10px;
-	cursor: pointer;
-	font-size: 1.2rem;
-  }
-  
-  .play-button {
-	background-color: var(--netflix-white);
-	color: var(--netflix-black);
-  }
-  
-  .more-info-button {
-	background-color: rgba(109, 109, 110, 0.7);
-	color: var(--netflix-white);
-  }
-  
-  .content-section {
-	padding: 20px 40px;
-  }
-  
-  .section-title {
-	font-size: 1.5rem;
-	margin-bottom: 15px;
-  }
-  
-  .movie-row {
+}
+
+.movies-row {
 	display: flex;
-	gap: 10px;
 	overflow-x: auto;
-	padding: 10px 0;
-  }
-  
-  .movie-row a {
-	  display: block;
-	  min-width: 200px;
-  }
-  
-  .movie-row a:hover {
-	  transform: scale(1.05);
-	  transition: transform 0.3s;
-  }
-  
-  .movie-card {
-	  display: flex;
-	  flex-direction: column;
-	  gap: 8px;
-	  padding: 5px;
-  }
-  
-  .movie-thumb {
-	  width: 200px;
-	  height: 300px;
-	  border-radius: 4px;
-	  overflow: hidden;
-  }
-  
-  .movie-card h3 {
-	  font-size: 14px;
-	  margin: 5px 0;
-	  color: var(--netflix-white);
-  }
-  
-	footer {
-	background-color: #333;
-	color: #fff;
-	padding: 10px;
-	text-align: center;
-  }
-  
-  .copyright {
-	font-size: 14px;
-	margin-bottom: 10px;
-  }
-  
-  .terms {
-	font-size: 12px;
-  }
-  
-  .terms a {
-	color: #fff;
-	text-decoration: none;
-  }
-  
-  .terms a:hover {
-	text-decoration: underline;
-  }
-  
-  .boton {
-	  background: rgba(0,0,0, 0.5);
-	  border: none;
-	  border-radius: 0.31em;
-	  padding: 0.93em 1.87em;
-	  color: #fff;
-	  margin-right: 1.25em;
-	  cursor: pointer;
-	  transition: .3s ease all;
-	  font-size: 1.12em;
-  }
-  .boton:hover {
-	  background: #fff;
-	  color: #000;
-  }
-  .boton i {
-	  margin-right: 1.25em;
-  }
-  
-  
-  
-  
-  
-	/* ---- ----- ----- Nav-bar ----- ----- ----- */
-  
-	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-	body {
-		font-family: 'Roboto', sans-serif;
-		background-color: black;
-		color: white;
-		margin: 0;
-		padding: 0;
+	gap: 0.5rem;
+	padding: 0.5rem 0;
+	-webkit-overflow-scrolling: touch;
+}
+
+.movie-card {
+	min-width: 140px;
+	height: 210px;
+	background: #2a2a2a;
+	border-radius: 4px;
+	transition: transform 0.3s;
+	position: relative;
+	overflow: hidden;
+}
+
+.movie-card img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.movie-info {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0,0,0,0.8);
+	padding: 0.5rem;
+	transform: translateY(100%);
+	transition: transform 0.3s;
+}
+
+.movie-info {
+    overflow: hidden; /* Oculta el contenido que desborda */
+    text-overflow: ellipsis; /* Agrega los puntos suspensivos */
+    display: -webkit-box; /* Para usar el modelo de caja flexible */
+    -webkit-box-orient: vertical; /* Orientación vertical */
+    -webkit-line-clamp: 14; /* Número de líneas a mostrar */
+    color: #fff; /* Color del texto */
+}
+
+.movie-info h3 {
+	font-size: 0.8rem;
+}
+
+.play-button {
+	background-color: #E50914;
+	color: white;
+	border: none;
+	padding: 0.5rem 1.5rem;
+	border-radius: 4px;
+	cursor: pointer;
+	margin-top: 1rem;
+	font-size: 0.9rem;
+}
+
+::-webkit-scrollbar {
+	height: 4px;
+}
+
+::-webkit-scrollbar-track {
+	background: #141414;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #E50914;
+	border-radius: 4px;
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+	.nav-left {
+		gap: 2rem;
 	}
-	.navbar {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 16px;
+	
+	.nav-links {
+		gap: 2rem;
 	}
-	.navbar-left, .navbar-right {
-		display: flex;
-		align-items: center;
+	
+	.nav-links a {
+		font-size: 1rem;
 	}
-  
-	.navbar-left div, .navbar-right div {
-		margin-right: 16px;
-	  align-items: center;
+	
+	.logo {
+		height: 40px;
 	}
-	.navbar-left .netflix-logo {
-	   background-image: url('../img/jflix-logo.png');
-	 background-size: cover;
-	background-position: center;
+	
+	.hero {
+		height: 80vh;
+		padding: 2rem;
 	}
-	.navbar-left .browse, .navbar-right .search, .navbar-right .profile-name {
-		color: #e50914;
-		font-size: 18px;
-	  align-items: center;
+	
+	.hero-content {
+		max-width: 600px;
 	}
-	.navbar-left .kids, .navbar-left .dvd, .navbar-right .search, .navbar-right .profile-name {
-		color: white;
-		font-size: 18px;
-	  align-items: center;
+	
+	.hero-content h1 {
+		font-size: 3rem;
 	}
-	.navbar-right .profile {
-		display: flex;
-		align-items: center;
-	  
+	
+	.hero-content p {
+		font-size: 1rem;
 	}
-	.profile img {
-		border-radius: 4px;
-		width: 30px;
-		height: 30px;
-		margin: 8px;
-	  
+	
+	.category {
+		padding: 2rem;
 	}
-  
-	.navbar .nav-link {
-	  margin: 8px;
+	
+	.category h2 {
+		font-size: 1.5rem;
 	}
-  
-	.profile-name {
-	  text-align: right;
-	  margin: 8px
+	
+	.movies-row {
+		gap: 1rem;
 	}
-  
+	
+	.movie-card {
+		min-width: 200px;
+		height: 300px;
+	}
+	
+	.movie-card:hover {
+		transform: scale(1.05);
+	}
+	
+	.movie-card:hover .movie-info {
+		transform: translateY(0);
+	}
+	
+	.movie-info h3 {
+		font-size: 1rem;
+	}
+}
