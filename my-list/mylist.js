@@ -53,6 +53,8 @@ let availableMovies = [
   { title: 'Monsters Inc.', image:'poster-mi.jpg', link: 'mId=585&mLink=ver-monsters' , id: '585' },
   { title: 'Mini-espías: Armagedón', image: 'poster-mea.jpg', link: 'mId=790493&mLink=ver-mini-espias-armagedon', id: '790493' },
   { title: 'Robot Salvaje', image:'poster-rs.jpg', link:'mId=1184918&mLink=ver-robot-salvaje', id: '1184918' },
+  { title: 'Garra', image: 'poster-gr.webp', link:'mId=705861&mLink=ver-garra', id: '705861' },
+
       
 ];
 

@@ -105,14 +105,20 @@
 { title: 'Monsters Inc.', image:'poster-mi.jpg', link: 'mId=585&mLink=ver-monsters' , id: '585' },
 { title: 'Mini-espías: Armagedón', image: 'poster-mea.jpg', link: 'mId=790493&mLink=ver-mini-espias-armagedon', id: '790493' },
 { title: 'Robot Salvaje', image:'poster-rs.jpg', link:'mId=1184918&mLink=ver-robot-salvaje', id: '1184918' },
+{ title: 'Garra', image: 'poster-gr.webp', link:'mId=705861&mLink=ver-garra', id: '705861' },
 
 		],
 		recents: [
-			{ title: 'Paternidad', image: 'poster-p.jpeg', link: 'mId=607259&mLink=ver-paternidad' , id: '607259' },
-{ title: 'Desconectados', image: 'poster-d.jpeg', link: 'mId=1062088&&mLink=ver-desconectados' , id: '1062088' },
-{ title: 'Monsters Inc.', image:'poster-mi.jpg', link: 'mId=585&mLink=ver-monsters' , id: '585' },
-{ title: 'Mini-espías: Armagedón', image: 'poster-mea.jpg', link: 'mId=790493&mLink=ver-mini-espias-armagedon', id: '790493' },
-{ title: 'Robot Salvaje', image:'poster-rs.jpg', link:'mId=1184918&mLink=ver-robot-salvaje', id: '1184918' },
+            { title: 'Planeta de los simios: Evolución', image: 'poster-pdls1.webp', link: 'mId=61791&mLink=ver-planeta-de-los-simios1', id: '61791'},
+            { title: 'Planeta de los simios: Confrontación', image: 'poster-pdls2.jpg', link: 'mId=119450&mLink=ver-planeta-de-los-simios2', id: '119450'},
+            { title: 'Planeta de los simios: La guerra', image: 'poster-pdls3.jpg', link: 'mId=281338&mLink=ver-planeta-de-los-simios3', id: '281338'},
+            { title: 'Planeta de los simios: Nuevo Reino', image: 'poster-pdls.jpeg', link: 'mId=653346&mLink=ver-planeta-de-los-simios4', id: '653346'},
+            { title: 'Desconectados', image: 'poster-d.jpeg', link: 'mId=1062088&&mLink=ver-desconectados' , id: '1062088' },
+            { title: 'Monsters Inc.', image:'poster-mi.jpg', link: 'mId=585&mLink=ver-monsters' , id: '585' },
+            { title: 'Mini-espías: Armagedón', image: 'poster-mea.jpg', link: 'mId=790493&mLink=ver-mini-espias-armagedon', id: '790493' },
+            { title: 'Robot Salvaje', image:'poster-rs.jpg', link:'mId=1184918&mLink=ver-robot-salvaje', id: '1184918' },
+            { title: 'Garra', image: 'poster-gr.webp', link:'mId=705861&mLink=ver-garra', id: '705861' },
+            
 
 		],
 		documental: [

@@ -47,6 +47,8 @@ const movieData = [
   { title: 'Monsters Inc.', image:'poster-mi.jpg', link: 'mId=585&mLink=ver-monsters' , id: '585' },
   { title: 'Mini-espías: Armagedón', image: 'poster-mea.jpg', link: 'mId=790493&mLink=ver-mini-espias-armagedon', id: '790493' },
   { title: 'Robot Salvaje', image:'poster-rs.jpg', link:'mId=1184918&mLink=ver-robot-salvaje', id: '1184918' },
+  { title: 'Garra', image: 'poster-gr.webp', link:'mId=705861&mLink=ver-garra', id: '705861' },
+
 ];
 
 const driveIds = {
@@ -88,6 +90,7 @@ const driveIds = {
 "585": "1-UIqNkqgwaEoRy0cN4z6FmlDNiVuSGc8",
 "790493": "1t-ouA0m-kJUfSLcL5q_8Pj6lwk3skuLo",
 "1184918": "19c12NYruHtGGiNwQcPGjH0WdKJSIYiF6",
+"705861": "1rvwVmyVlFhOLA_mQlXD2ld_ZW--GdyAY",
 };
 
 function showError(title, message, duration = 5000) {
