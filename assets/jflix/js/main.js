@@ -71,7 +71,10 @@
 { title: 'Mi villano favorito 4', image: 'poster-mvf4.jpeg', link: 'mId=519182&mLink=ver-mi-villano-favorito-4', id: '519182'},
 { title: 'UP: Una aventura en las alturas', image: 'poster-up.jpeg', link: 'mId=14160&mLink=ver-up', id: '14160' },
 { title: 'Un vecino gruñón', image: 'poster-uvg.jpeg', link: 'mId=937278&mLink=ver-un-vecino-gru%C3%B1%C3%B3n', id: '937278'},
-{ title: 'Planeta de los simios: Nuevo Reino', image: 'poster-pdls.jpeg', link: 'mId=653346&mLink=ver-planeta-de-los-simios', id: '653346'},
+{ title: 'Planeta de los simios: Evolución', image: 'poster-pdls1.webp', link: 'mId=61791&mLink=ver-planeta-de-los-simios1', id: '61791'},
+{ title: 'Planeta de los simios: Confrontación', image: 'poster-pdls2.jpg', link: 'mId=119450&mLink=ver-planeta-de-los-simios2', id: '119450'},
+{ title: 'Planeta de los simios: La guerra', image: 'poster-pdls3.jpg', link: 'mId=281338&mLink=ver-planeta-de-los-simios3', id: '281338'},
+{ title: 'Planeta de los simios: Nuevo Reino', image: 'poster-pdls.jpeg', link: 'mId=653346&mLink=ver-planeta-de-los-simios4', id: '653346'},
 { title: 'Daniel el Travieso', image: 'poster-det.jpeg', link: 'mId=45242&mLink=ver-daniel-el-travieso', id: '45242'},
 { title: 'Los pinguinos de papá', image: 'poster-lpdp.jpeg', link: 'mId=58224&mLink=play-movie-3r3434t44', id: '58224'},
 { title: 'IntensaMente 2', image: 'poster-im2.jpeg', link: 'mId=1022789&mLink=ver-intensamente-2', id: '1022789'},
@@ -90,7 +93,7 @@
 { title: 'La era de hielo 2', image: 'poster-ledh2.jpeg', link: 'mId=950&mLink=ver-la-era-de-hielo-2' , id: '950' },
 { title: 'La era de hielo 3', image: 'poster-ledh3.jpeg', link: 'mId=8355&mLink=ver-la-era-de-hielo-3' , id: '8355' },
 { title: 'La era de hielo 4', image: 'poster-ledh4.jpeg', link: 'mId=57800&mLink=ver-la-era-de-hielo-4' , id: '57800' },
-{ title: 'La era de hielo 5', image: 'poster-ledh5.jpeg', link: 'mId=258154&mLink=ver-la-era-de-hielo-5' , id: '258154' },
+{ title: 'La era de hielo 5', image: 'poster-ledh5.jpeg', link: 'mId=278154&mLink=ver-la-era-de-hielo-5' , id: '278154' },
 { title: 'La Propuesta', image: 'poster-lp.jpeg', link: 'mId=18240&mLink=ver-la-propuesta' , id: '18240' },
 { title: 'Mis huellas a casa', image: 'poster-mhac.jpg', link: 'mId=508763&mLink=ver-mis-huellas-a-casa' , id: '508763' },
 { title: 'Mi pobre angelito 1', image: 'poster-mpa1.jpg', link: 'mId=771&mLink=ver-mi-pobre-angelito-1' , id: '771' },
@@ -100,19 +103,19 @@
 { title: 'Paternidad', image: 'poster-p.jpeg', link: 'mId=607259&mLink=ver-paternidad' , id: '607259' },
 { title: 'Desconectados', image: 'poster-d.jpeg', link: 'mId=1062088&&mLink=ver-desconectados' , id: '1062088' },
 { title: 'Monsters Inc.', image:'poster-mi.jpg', link: 'mId=585&mLink=ver-monsters' , id: '585' },
+{ title: 'Mini-espías: Armagedón', image: 'poster-mea.jpg', link: 'mId=790493&mLink=ver-mini-espias-armagedon', id: '790493' },
+
 		],
 		recents: [
-			{ title: 'Mi pobre angelito 3', image: 'poster-mpa3.jpeg', link: 'mId=9714&mLink=ver-mi-pobre-angelito-3' , id: '9714' },
-{ title: 'El Joven Manos De Tijera', image: 'poster-ejmdt.jpg', link: 'mId=162&mLink=ver-el-joven-manos-de-tijeras' , id: '162' },
+			{ title: 'El Joven Manos De Tijera', image: 'poster-ejmdt.jpg', link: 'mId=162&mLink=ver-el-joven-manos-de-tijeras' , id: '162' },
 { title: 'Paternidad', image: 'poster-p.jpeg', link: 'mId=607259&mLink=ver-paternidad' , id: '607259' },
 { title: 'Desconectados', image: 'poster-d.jpeg', link: 'mId=1062088&&mLink=ver-desconectados' , id: '1062088' },
 { title: 'Monsters Inc.', image:'poster-mi.jpg', link: 'mId=585&mLink=ver-monsters' , id: '585' },
+{ title: 'Mini-espías: Armagedón', image: 'poster-mea.jpg', link: 'mId=790493&mLink=ver-mini-espias-armagedon', id: '790493' },
 		],
 		documental: [
-			{ title: 'Gir: Ultimo refugio del león asiático', image: 'poster-d-gir.jpg', link: 'documental=ver-d-gir' , id: '' },
-			{ title: 'Viaje a la patagonia chilena', image: 'poster-d-pchilena.jpg', link: 'documental=ver-d-pchilena' , id: '' },
-			{ title: 'Kanha: La tierra del tigre', image: 'poster-d-tierra-tigre.jpg', link: 'documental=ver-d-tierra-tigre' , id: '' },
-			{ title: 'Madagascar: Los hijos de lemuria', image: 'poster-d-lemuria.jpg', link: 'documental=ver-d-lemuria' , id: '' },
+			{ title: 'Rivalidades en el Imperio Salvaje', image: 'poster-d-reeis.jpg', link: 'documental=reeis', id: 'd-Rivalidades poderosas de clanes de leones, hienas y jaguares se enfretan cara a cara. ¿Quién es el más poderoso?'},
+            { title: 'Hallazgo Asombroso: Pirámide Oculta', image: 'poster-d-hapo.jpg', link: 'documental=hapo', id: 'd-Albert Lin quedó impactado al descubrir pirámides en la antigua ciudad de El Palmar. ¿ A quiénes pertenecieron? ¿Qué sacrificios hacían?'},
 		]
 	};
 
@@ -173,15 +176,21 @@ async function fetchSynopsis(movieId) {
     const apiKey = '26750a2fb7d61fdec546f4df7c4ad631'; // Replace with your actual API key
     const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=es-ES`;
 
+    if (movieId.startsWith("d-")) {
+        movieId = movieId.slice(2); 
+        return movieId
+    } else {
     try {
         const response = await fetch(url);
         const data = await response.json();
         return data.overview; // Return the synopsis
+        
     } catch (error) {
         return 'Sinopsis no disponible'; // Default message in case of error
     }
 }
 
+}
 // Function to display movies with their synopses
 async function displayMovies() {
     const entries = Object.entries(categories);
