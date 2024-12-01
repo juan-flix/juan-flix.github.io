@@ -179,27 +179,40 @@
 
 
 
-// Function to fetch the synopsis of a movie
-async function fetchSynopsis(movieId) {
-    const apiKey = '26750a2fb7d61fdec546f4df7c4ad631'; // Replace with your actual API key
-    const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=es-ES`;
-
-    if (movieId.startsWith("d-")) {
-        movieId = movieId.slice(2); 
-        return movieId
-    } else {
-    try {
-        const response = await fetch(url);
-        const data = await response.json();
-        return data.overview; // Return the synopsis
+    const apiKey = '26750a2fb7d61fdec546f4df7c4ad631'; 
+    const cache = {};
+    async function fetchSynopsis(movieId) {
         
-    } catch (error) {
-        return 'Sinopsis no disponible'; // Default message in case of error
-    }
-}
+        if (movieId.startsWith("d-")) {
+            return movieId.slice(2); 
+        }
+    
+        if (cache[movieId]) {
+            return cache[movieId]; 
+         }
+    
+        const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=es-ES`;
+    
+        try {
+            const response = await fetch(url);
+            
+           if (!response.ok) {
+                throw new Error('Error en la respuesta de la API');
+            }
+    
+            const data = await response.json();
+            const synopsis = data.overview || 'Sinopsis no disponible'; 
 
-}
-// Function to display movies with their synopses
+            
+            cache[movieId] = synopsis;
+    
+            return synopsis;
+         } catch (error) {
+            console.error('Error al obtener la sinopsis:', error);
+            return 'Sinopsis no disponible'; 
+        }
+    }
+
 async function displayMovies() {
     const entries = Object.entries(categories);
     
@@ -208,7 +221,7 @@ async function displayMovies() {
         const title = entries[i][1];
         
         const movies = moviesData[key];
-		const container = document.getElementById('moviesContainer');
+        const container = document.getElementById('moviesContainer');
 
         const section = document.createElement('section');
         section.className = 'category';
@@ -216,8 +229,11 @@ async function displayMovies() {
         
         const moviesRow = section.querySelector('.movies-row');
 
-        for (const movie of movies) {
-            const sinopsisMovie = await fetchSynopsis(movie.id); // Fetch the synopsis
+       
+        const synopsesPromises = movies.map(movie => fetchSynopsis(movie.id));
+        const synopses = await Promise.all(synopsesPromises);
+
+        movies.forEach((movie, index) => {
             const movieCard = document.createElement('div');
             movieCard.className = 'movie-card';
             movieCard.innerHTML = `
@@ -225,18 +241,17 @@ async function displayMovies() {
                     <img alt="Poster de ${movie.title}" src="../assets/jflix/img/${movie.image}" width="200" height="300">
                     <div class="movie-info">
                         <h3 style="color: #fff;">${movie.title}</h3>
-                        <p style="color: #fff;" class="description">${sinopsisMovie}</p> 
+                        <p style="color: #fff;" class="description">${synopses[index]}</p> 
                     </div>
                 </a>
             `;
             moviesRow.appendChild(movieCard);
-        }
+        });
 
         container.appendChild(section);
     }
 }
 
-// Call the function to display movies
 displayMovies();
 
 });

@@ -2,7 +2,6 @@ const url = new URL(window.location.href);
   const idParam = url.searchParams.get('id');
 
   if (idParam === 'true-ChcSXuH05qYavtH8CyGcc3qLDyQwXsvEdtOyK63B2mgZUiPkWmTWgNxL32rmptLB') {
-    // Quitar parámetro id de la URL
     url.searchParams.delete('id');
     window.history.pushState({}, '', url.href);
   } else {
@@ -137,7 +136,6 @@ addMovieForm.addEventListener('submit', (e) => {
   }
 });
 
-// Cargar las películas al iniciar
 loadMovies();
 displayMovies();
 updateAvailableMovies();
