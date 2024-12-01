@@ -76,7 +76,7 @@ function displayMovies() {
     const itemElement = document.createElement('div');
     itemElement.className = 'item';
     itemElement.innerHTML = `
-     <a href="movies/movie.html?${movie.link}" target="_blank"><img src="https://juan-flix.github.io/assets/jflix/img/${movie.image}" alt="${movie.title}" width="200" height="300" ></a>
+     <a href="../movies/movie.html?${movie.link}" target="_blank"><img src="https://juan-flix.github.io/assets/jflix/img/${movie.image}" alt="${movie.title}" width="200" height="300" ></a>
       <div class="title">${movie.title}</div>
       <button class="remove" onclick="removeMovie(${index})">×</button>
     `;
