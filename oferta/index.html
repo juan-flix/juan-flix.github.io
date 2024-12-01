@@ -56,9 +56,23 @@
             </div>
         </div>
     </div>
+    <div class="UserContainer">
+            <nav>
+                <img src="https://juan-flix.github.io/assets/jflix/img/jflix-logo.png" alt="JFlix Logo" class="logo">
+            </nav>
+            <div class="header">
+        <h1>Ya estás registrado en Juan Flix+!</h1>
+        <p>Deseas comprar otro plan?</p>
+        <button class="btn" onclick="userShop()">Comprar otro plan</button>
+        <p>... o vas a iniciar sesión en tu cuenta actual</p>
+        <button class="btn" onclick="userLogin()">Iniciar sesión</button></div>
+    </div>
 </body>
 <script>
     const mainContainer = document.querySelector('.container');
+    const UserContainer = document.querySelector('.UserContainer');
+    mainContainer.style.display = 'block';
+    UserContainer.style.display = 'none';
             
     function getCookie(name) {
         const value = `; ${document.cookie}`;
@@ -80,14 +94,23 @@
            
   
         } else {
-            protocoloNewUser();
+            protocoloUser();
         }
-        function protocoloNewUser(){
+        function protocoloUser(){
             mainContainer.style.display = 'none';
-            newUsercontainer
+            UserContainer.style.display = 'block';
 
         }
     };
+
+    function userShop(){
+        UserContainer.style.display = 'none';
+        mainContainer.style.display = 'block';
+    }
+
+    function userLogin(){
+        window.location.href = '../login/';
+    }
   
 
 
